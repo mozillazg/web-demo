@@ -2,8 +2,8 @@ package views
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"strings"
 
@@ -19,7 +19,7 @@ type stpinyinResponse struct {
 }
 
 var stpinyinRouter = router{
-	url: "/api/v1/stpinyin",
+	url:     "/api/v1/stpinyin",
 	methods: []string{"POST"},
 	handler: func(w http.ResponseWriter, r *http.Request) {
 		b, err := ioutil.ReadAll(r.Body)
@@ -35,7 +35,7 @@ var stpinyinRouter = router{
 		}
 
 		pinyins := strings.Split(req.Pinyin, " ")
-		for n, v := range(pinyins) {
+		for n, v := range pinyins {
 			v = stpinyin.Convert(v)
 			pinyins[n] = v
 		}

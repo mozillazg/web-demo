@@ -1,20 +1,19 @@
 package views
 
 import (
-	"net/http"
 	"log"
+	"net/http"
 )
 
 type router struct {
-	url string
+	url     string
 	methods []string
 	handler http.HandlerFunc
 }
 
-
 func (r *router) match(req *http.Request) bool {
 	if req.URL.Path == r.url {
-		for _, method := range(r.methods) {
+		for _, method := range r.methods {
 			if req.Method == method {
 				return true
 			}
@@ -32,7 +31,7 @@ func addRouter(r router) {
 func Handler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("request url '%s' with '%s'", r.URL.Path, r.Method)
 	log.Printf("routers: %v", routers)
-	for _, router := range(routers) {
+	for _, router := range routers {
 		if router.match(r) {
 			router.handler(w, r)
 			return

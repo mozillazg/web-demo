@@ -2,8 +2,8 @@ package views
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/mozillazg/go-slugify"
@@ -18,7 +18,7 @@ type slugifyResponse struct {
 }
 
 var slugifyRouter = router{
-	url: "/api/v1/go-slugify",
+	url:     "/api/v1/go-slugify",
 	methods: []string{"POST"},
 	handler: func(w http.ResponseWriter, r *http.Request) {
 		b, err := ioutil.ReadAll(r.Body)
@@ -43,4 +43,3 @@ var slugifyRouter = router{
 func init() {
 	addRouter(slugifyRouter)
 }
-
