@@ -18,7 +18,7 @@ type slugifyResponse struct {
 }
 
 var slugifyRouter = router{
-	url:     "/api/v1/go-slugify",
+	url:     "/api/v1/slugify",
 	methods: []string{"POST"},
 	handler: func(w http.ResponseWriter, r *http.Request) {
 		b, err := ioutil.ReadAll(r.Body)

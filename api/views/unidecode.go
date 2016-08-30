@@ -18,7 +18,7 @@ type unidecodeResponse struct {
 }
 
 var unidecodeRouter = router{
-	url:     "/api/v1/go-unidecode",
+	url:     "/api/v1/unidecode",
 	methods: []string{"POST"},
 	handler: func(w http.ResponseWriter, r *http.Request) {
 		b, err := ioutil.ReadAll(r.Body)
