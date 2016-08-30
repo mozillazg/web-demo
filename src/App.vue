@@ -1,64 +1,83 @@
 <template>
-  <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-    </p>
-    <p>
-      To get a better understanding of how this boilerplate works, check out
-      <a href="http://vuejs-templates.github.io/webpack" target="_blank">its documentation</a>.
-      It is also recommended to go through the docs for
-      <a href="http://webpack.github.io/" target="_blank">Webpack</a> and
-      <a href="http://vuejs.github.io/vue-loader/" target="_blank">vue-loader</a>.
-      If you have any issues with the setup, please file an issue at this boilerplate's
-      <a href="https://github.com/vuejs-templates/webpack" target="_blank">repository</a>.
-    </p>
-    <p>
-      You may also want to checkout
-      <a href="https://github.com/vuejs/vue-router/" target="_blank">vue-router</a> for routing and
-      <a href="https://github.com/vuejs/vuex/" target="_blank">vuex</a> for state management.
-    </p>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/" v-link="{path: '/'}">DEMO</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active" v-if="$route.name === 'pinyin'">
+            <a href="/" v-link="{name: 'pinyin'}">pinyin</a>
+          </li>
+          <li class="" v-else>
+            <a href="/" v-link="{name: 'pinyin'}">pinyin</a>
+          </li>
+
+          <li class="active" v-if="$route.name === 'unidecode'">
+            <a href="/" v-link="{name: 'unidecode'}">unidecode</a>
+          </li>
+          <li class="" v-else>
+            <a href="/" v-link="{name: 'unidecode'}">unidecode</a>
+          </li>
+
+          <li class="active" v-if="$route.name === 'slugify'">
+            <a href="/" v-link="{name: 'slugify'}">slugify</a>
+          </li>
+          <li class="" v-else>
+            <a href="/" v-link="{name: 'slugify'}">slugify</a>
+          </li>
+
+          <li class="active" v-if="$route.name === 'stpinyin'">
+            <a href="/" v-link="{name: 'stpinyin'}">stpinyin</a>
+          </li>
+          <li class="" v-else>
+            <a href="/" v-link="{name: 'stpinyin'}">stpinyin</a>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading -->
+    <div class="">
+      <h1><a href="/">{{ name }}</a></h2>
+    </div>
+    <!-- /.row -->
+
+    <div >
+      <!-- Projects Row -->
+      <div class="row">
+        <router-view></router-view>
+      </div>
+      <!-- /.row -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+        </div>
+      </div>
+    <!-- /.row -->
+    </footer>
+
   </div>
+  <!-- /.container -->
 </template>
 
 <script>
-import Hello from './components/Hello'
-
 export default {
-  components: {
-    Hello
-  }
 }
 </script>
-
-<style>
-html {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-#app {
-  color: #2c3e50;
-  margin-top: -100px;
-  max-width: 600px;
-  font-family: Source Sans Pro, Helvetica, sans-serif;
-  text-align: center;
-}
-
-#app a {
-  color: #42b983;
-  text-decoration: none;
-}
-
-.logo {
-  width: 100px;
-  height: 100px
-}
-</style>
